@@ -11,6 +11,7 @@ function BisectionTonkaew() {
   const [xTable, setXTable] = useState([]);
 
   // bisectionCalculate(0, 10, "1-43x", 0.000001);
+  //1
 
   function bisectionCalculate(xLeft, xRight, func, epsilon) {
     console.log("bisection...");
@@ -38,7 +39,7 @@ function BisectionTonkaew() {
         xLeft,
         xRight,
         xMedium,
-        error: abs(evaluate(func, { x: xMedium }))
+        error: abs(evaluate(func, { x: xMedium })),
       });
 
       if (fxLeft * fxMedium < 0) {
@@ -78,13 +79,15 @@ function BisectionTonkaew() {
         </thead>
         <tbody>
           {xTable.map((v) => {
-            return <tr>
-              <td>{v.iter}</td>
-              <td>{Number(v.xLeft).toFixed(12)}</td>
-              <td>{v.xRight}</td>
-              <td>{v.xMedium}</td>
-              <td>{v.error * 100}%</td>
-            </tr>
+            return (
+              <tr>
+                <td>{v.iter}</td>
+                <td>{Number(v.xLeft).toFixed(12)}</td>
+                <td>{v.xRight}</td>
+                <td>{v.xMedium}</td>
+                <td>{v.error * 100}%</td>
+              </tr>
+            );
           })}
         </tbody>
       </table>
